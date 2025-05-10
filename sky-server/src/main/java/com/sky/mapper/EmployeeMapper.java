@@ -31,4 +31,17 @@ public interface EmployeeMapper {
      */
 
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /*
+    修改状态
+     */
+    void update(Employee employee);   //MyBatis Mapper XML文件中，可以自动提取传入的Employee对象中的属性值
+
+    /**
+     * 根据id查询员工信息
+     * @param id
+     * @return
+     */
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
 }
